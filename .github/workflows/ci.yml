@@ -15,7 +15,7 @@ jobs:
   phpunit:
     strategy:
       matrix:
-        laravel: [9, 8, 6]
+        laravel: [6, 8, 9]
 
     name: Tests (PHPUnit)
     runs-on: ubuntu-latest
