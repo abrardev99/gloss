@@ -24,9 +24,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install composer dependencies
-      run: |
-        composer require "laravel/framework:^${{matrix.laravel}}.0"
-        composer update --prefer-dist --no-interaction --no-suggest
+      run: composer require "laravel/framework:^${{matrix.laravel}}.0"
     - name: Run tests
       run: vendor/bin/phpunit
 
