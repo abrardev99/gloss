@@ -16,7 +16,7 @@ jobs:
     name: Tests (PHPUnit) L${{ matrix.laravel }}
     strategy:
       matrix:
-        php: [7.2.5, 8.0]
+        php: [7.2.5, 8.0, 8.0]
         laravel: [6, 8, 9]
         include:
           - laravel: 6
