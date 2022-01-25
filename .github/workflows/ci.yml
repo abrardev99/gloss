@@ -18,12 +18,12 @@ jobs:
       matrix:
         laravel: [6, 8, 9]
         include:
-        - laravel: 6
-            testbench: ^4.0
-        - laravel: 8
-            testbench: ^6.0
+          - laravel: 6
+              testbench: ^4.0
+          - laravel: 8
+              testbench: ^6.0
           - laravel: 9.*
-            testbench: ^7.0
+              testbench: ^7.0
 
 
     runs-on: ubuntu-latest
