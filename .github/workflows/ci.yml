@@ -17,14 +17,21 @@ jobs:
     strategy:
       matrix:
         laravel: [6, 8, 9]
-        dependency-version: [prefer-stable, prefer-stable, prefer-lowest,]
+        include:
+        - laravel: 6
+            testbench: ^4.0
+        - laravel: 8
+            testbench: ^6.0
+          - laravel: 9.*
+            testbench: ^7.0
+
 
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
     - name: Install composer dependencies
-      run: composer require "laravel/framework:^${{matrix.laravel}}.0"
+      run: composer require "laravel/framework:^${{matrix.laravel}}.0" "orchestra/testbench:${{ matrix.testbench }}"
     - name: Run tests
       run: vendor/bin/phpunit
 
