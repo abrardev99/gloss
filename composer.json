@@ -22,7 +22,7 @@
     "require-dev": {
         "orchestra/testbench": "^4.0|^6.0|^7.0",
         "phpunit/phpunit": "^9.5",
-        "nunomaduro/larastan": "^0.6.11"
+        "nunomaduro/larastan": "^1.0"
     },
     "extra": {
         "laravel": {
