@@ -15,6 +15,7 @@ jobs:
   phpunit:
     name: Tests (PHPUnit) L${{ matrix.laravel }}
     strategy:
+      php: [7.2, 8.0]
       matrix:
         laravel: [6, 8, 9]
 
@@ -22,6 +23,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extension-csv: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick
+          coverage: none
+
     - uses: actions/checkout@v2
     - name: Install composer dependencies
       run: composer require "laravel/framework:^${{matrix.laravel}}.0"
