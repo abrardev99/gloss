@@ -20,16 +20,18 @@ jobs:
         laravel: [6, 8, 9]
 
     steps:
-      - name: Setup PHP with PECL extension
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.0'
 
-    - uses: actions/checkout@v2
-    - name: Install composer dependencies
-      run: composer require "laravel/framework:^${{matrix.laravel}}.0"
-    - name: Run tests
-      run: vendor/bin/phpunit
+      - name: Install dependencies
+        run: composer require "laravel/framework:^${{matrix.laravel}}.0"
+      - name: Run tests
+        run: vendor/bin/phpunit
 
   phpstan:
     name: Static analysis (PHPStan)
